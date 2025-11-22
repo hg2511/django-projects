@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academy-Courses</title>
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/academy/courses/">Courses</a>
+        <a href="/academy/trainers/">Trainers</a>
+        <a href="/academy/students/">Students</a>
+    </nav>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Duration (weeks)</th>
+            <th>Description</th>
+            <th>Image</th>
+        </tr>
+
+        {% for c in courses %}
+        <tr>
+            <td>{{ c.course_name }}</td>
+            <td>{{ c.duration_in_week }}</td>
+            <td>{{ c.description }}</td>
+            <td>
+                {% if c.course_image %}
+                    <img src="{{ c.course_image.url }}" width="80">
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
