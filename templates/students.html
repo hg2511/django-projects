@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academy-Students</title>
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/academy/courses/">Courses</a>
+        <a href="/academy/trainers/">Trainers</a>
+        <a href="/academy/students/">Students</a>
+    </nav>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Enrolled Course</th>
+            <th>Trainer</th>
+            <th>Active</th>
+        </tr>
+
+        {% for s in students %}
+        <tr>
+            <td>{{ s.first_name }} {{ s.last_name }}</td>
+            <td>{{ s.email }}</td>
+            <td>{{ s.enrolled_course.course_name }}</td>
+            <td>{{ s.trainer.trainer_name }}</td>
+            <td>{{ s.is_active }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+</body>
+</html>
